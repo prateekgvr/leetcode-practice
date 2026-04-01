@@ -1,0 +1,18 @@
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        if numRows ==1 or numRows >= len(s):
+            return s
+        
+        row:int =0 
+        direction: int = -1
+
+        rowarray = ['']*numRows
+
+        for ch in s:
+            rowarray[row] += ch
+
+            if row ==0 or row == numRows-1:
+                direction*=-1
+            
+            row+=direction
+        return"".join(rowarray)
